@@ -1,0 +1,25 @@
+#############SPI Configurate Setting##################
+set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
+set_property CONFIG_MODE SPIx4 [current_design]
+set_property BITSTREAM.CONFIG.CONFIGRATE 50 [current_design]
+
+set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
+set_property BITSTREAM.CONFIG.UNUSEDPIN Pullup [current_design]
+set_property CFGBVS VCCO [current_design]
+set_property CONFIG_VOLTAGE 3.3 [current_design]
+############## clock define##################
+create_clock -period 5 [get_ports sys_clk_p]
+set_property PACKAGE_PIN AK17 [get_ports sys_clk_p]
+set_property IOSTANDARD DIFF_SSTL12 [get_ports sys_clk_p]
+############## key define##################
+set_property PACKAGE_PIN N27 [get_ports rst_n]
+set_property IOSTANDARD LVCMOS18 [get_ports rst_n]
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets rst_n_IBUF_inst/O]
+##############uart define###########################
+
+set_property IOSTANDARD LVCMOS18 [get_ports uart_tx]
+set_property PACKAGE_PIN AM9 [get_ports uart_tx]
+
+set_property PACKAGE_PIN AK11 [get_ports fan]
+set_property IOSTANDARD LVCMOS18 [get_ports fan]
+
